@@ -1,0 +1,74 @@
+Problem Statement: Design a database schema for an e-commerce app using the E-R model and design tables accordingly using the relationship model. The necessary information is given below :
+
+Entities : Supplier, Customer, Items, Order
+Every item should correspond to a supplier. One supplier can have more than one items.
+A customer can have one order at the same time. One order can have multiple items from multiple brands.
+
+Assume columns accordingly and mention primary keys, weak and strong entities.
+
+Solution: 
+
+
+Based on the given information, we can design a database for the e-commerce app using the Entity-Relationship (E-R) model.
+
+First we identify the entities & relationships from the given problem statement.
+
+Entities: Supplier ,Customer,Item,Order
+
+
+Relationships:
+
+One-to-Many Relationship between Supplier and Item:
+
+One supplier can have multiple items.
+One item can be associated with only one supplier.
+
+One-to-Many Relationship between Customer and Order:
+One customer can have multiple orders.
+One order can be placed by only one customer.
+
+Many-to-Many Relationship between Item and Order:
+One order can have multiple items.
+One item can be associated with multiple orders.
+
+To implement the above schema in the relational model, we have to create the following tables:
+
+
+Table: Supplier(Strong entity)
+
+SupplierID (Primary Key)
+SupplierName
+SupplierAddress
+SupplierContact
+
+
+Table: Customer(Strong entity)
+
+CustomerID (Primary Key)
+CustomerName
+CustomerAddress
+CustomerContact
+
+
+Table: Item(Strong entity)
+
+ItemID (Primary Key)
+ItemName
+SupplierID (Foreign Key referencing Supplier table)
+Price
+Quantity
+
+
+Table: Order_details(Strong entity)
+
+OrderID (Primary Key)
+CustomerID (Foreign Key referencing Customer table)
+OrderDate
+TotalAmount
+
+
+Table: OrderItem(Weak entity)
+
+OrderID (Foreign Key referencing Order table)
+ItemID (Foreign Key referencing Item table)
+Quantity
