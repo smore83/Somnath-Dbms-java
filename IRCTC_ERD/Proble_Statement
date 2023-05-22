@@ -1,0 +1,54 @@
+
+Design a database schema for railway ticket booking using the E-R model and design tables accordingly using the relationship model. The necessary information is given below :
+
+Entities : Train, Ticket, Customer
+Ticket can be reserved or unreserved.
+Each reserved ticket must correspond to a train and a customer.
+Each unreserved ticket must correspond to a customer.
+A customer cannot be in two trains at the same time.
+Assume columns accordingly and mention primary keys, weak and strong entities.
+
+Based on the given information, we can design a database schema for railway ticket booking(IRCTC) using the Entity-Relationship (E-R) model.
+
+Step1: Find all entities & thier relationship.
+
+Entities: Train, Ticket, Customer
+
+Relationships: Reserved Ticket, Unreserved Ticket
+
+
+Primary keys are denoted with an asterisk (*), and foreign keys are denoted with a caret (^).
+Weak entities are indicated within square brackets [].
+
+Train(Train_ID(PK), Train_Name, Departure_Time, Arrival_Time, ...other_details)
+
+Ticket(Ticket_ID(PK), Ticket_Type, Customer_ID, Train_ID(FK), ...other_details)
+
+Customer(Customer_ID(PK), Customer_Name, Customer_Address, ...other_details)
+
+Reserved Ticket
+
+Unreserved Ticket
+
+Explanation:
+
+The "Train" entity represents information about each train, including its unique ID, name, 
+departure time, arrival time, and any other relevant attributes.
+
+The "Ticket" entity represents individual tickets, which can be either reserved or unreserved. 
+It includes a unique ticket ID, ticket type (reserved or unreserved), customer ID, train ID, and other attributes such as seat number, fare, etc.
+
+The "Customer" entity stores information about customers, including their unique ID, name, address, and other relevant details.
+
+The "Reserved Ticket" relationship indicates that a reserved ticket must correspond to a customer and a train.
+It is represented as a weak entity since it depends on both the "Ticket" and "Customer" entities.
+
+The "Unreserved Ticket" relationship indicates that an unreserved ticket must correspond to a customer.
+It is also represented as a weak entity since it depends on the "Ticket" entity.
+
+The "Ticket" entity references the "Customer" entity through the Customer_ID attribute, and it references the "Train" entity through the Train_ID attribute.
+
+This database schema allows for the storage of information related to trains, tickets, and customers while maintaining the relationships between them.
+It ensures that each reserved ticket corresponds to a specific train and customer, and each unreserved ticket corresponds to a customer.
+It also enforces the constraint that a customer cannot be in two trains simultaneously.
+

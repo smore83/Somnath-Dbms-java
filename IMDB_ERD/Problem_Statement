@@ -1,0 +1,58 @@
+Problem statement: Design a database schema for a movie and tv series database using the E-R model and design tables accordingly using the relationship model. The necessary information is given below :
+
+Entities : Movie, Actors, TV series
+A TV series or a movie must have an actor. An actor can act in both.
+
+Assume columns accordingly and mention primary keys, weak and strong entities.
+
+By doing analysis of above system we observe:
+
+Relationships:
+
+Many-to-Many Relationship between Movie and Actor:
+
+A movie can have multiple actors.
+An actor can act in multiple movies.
+Many-to-Many Relationship between TV Series and Actor:
+
+A TV series can have multiple actors.
+An actor can act in multiple TV series.
+To implement the above schema in the relational model, we can create the following tables:
+
+Table: Movie(Strong entity)
+
+MovieID (Primary Key)
+Title
+ReleaseDate
+Genre
+Director
+
+Table: Actor(Strong entity)
+
+ActorID (Primary Key)
+ActorName
+BirthDate
+Nationality
+
+
+Table: MovieActor
+
+MovieID (Foreign Key referencing Movie table)
+ActorID (Foreign Key referencing Actor table)
+PRIMARY KEY (MovieID, ActorID)
+
+Table: TVSeries(Strong entity)
+
+SeriesID (Primary Key)
+Title
+ReleaseDate
+Genre
+Director
+
+Table: TVSeriesActor 
+
+SeriesID (Foreign Key referencing TVSeries table)
+ActorID (Foreign Key referencing Actor table)
+PRIMARY KEY (SeriesID, ActorID)
+
+Here, MovieActor and TVSeriesActor are weak entities that depend on the existence of both Movie/TV Series and Actor.
